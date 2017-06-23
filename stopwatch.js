@@ -1,5 +1,5 @@
 var time = {'minutes': 0, 'seconds': 0, 'centiseconds': 0};
-var timer, running = false, mode = "normal";
+var timer, running = false, mode = "normal", tournamentStop = false;
 var timeDiv = document.getElementById('time'); //Span that hold time string
 var modeButton = document.getElementById('mode'); //Clicking mode
 
@@ -16,9 +16,10 @@ setTimeout(function(){
 
 function handleTimer(e){ //Sends it to correct function based on running
   var keyCode = e.keyCode;
-  if(keyCode !== 32) return false;
+  if(keyCode !== 32) return;
 
   if(running || mode === "tournament"){ //Stop time
+    tournamentStop = true;
     stopTime();
   } else { //Run Time
     Object.keys(time).forEach(x => time[x] = 0); //Reset
@@ -31,7 +32,12 @@ function handleTimer(e){ //Sends it to correct function based on running
 function handleTournamentTimer(e){
   if(mode === "normal") return;
   var keyCode = e.keyCode;
-  if(keyCode !== 32) return false;
+  if(keyCode !== 32) return;
+  if(tournamentStop){ //Hard stop on tournament because of my logic.
+    tournamentStop = false;
+    return;
+  }
+
   if(!running){
     Object.keys(time).forEach(x => time[x] = 0); //Reset
     timeDiv.innerHTML = getTimeString();
