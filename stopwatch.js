@@ -1,10 +1,14 @@
 var time = {'minutes': 0, 'seconds': 0, 'centiseconds': 0};
 var timer, running = false;
-var timeDiv = document.getElementById('time');
+var timeDiv = document.getElementById('time'); //Span that hold time string
 
-document.addEventListener('keydown', handleTimer);
+document.addEventListener('keydown', handleTimer); //On pressing space
 
-function handleTimer(e){
+//Absolutely position at center
+timeDiv.style.top = window.innerHeight / 2 - timeDiv.offsetHeight - 20 + 'px';
+timeDiv.style.left = window.innerWidth / 2 - timeDiv.offsetWidth / 2 + 'px';
+
+function handleTimer(e){ //Sends it to correct function based on running
   var keyCode = e.keyCode;  
   if(keyCode !== 32) return false;
   console.log("Init stopwatch");
@@ -14,7 +18,7 @@ function handleTimer(e){
     Object.keys(time).forEach(x => time[x] = 0); //Reset
     timeDiv.innerHTML = getTimeString();
     running = true;
-    timer = setInterval(runTime, 10);
+    timer = setInterval(runTime, 10); //Runs every 10 millisecond
   }
 }
 
