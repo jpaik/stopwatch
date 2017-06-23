@@ -2,17 +2,17 @@ var time = {'minutes':0, 'seconds': 0, 'centiseconds': 0};
 var timer, running = false;
 var timeDiv = document.getElementById('time');
 
-document.addEventListener('keydown', handleTimer)
+document.addEventListener('keydown', handleTimer);
 
 function handleTimer(e){
   var keyCode = e.keyCode;  
   if(keyCode !== 32) return false;
-  
+  console.log("Init stopwatch");
   if(running){ //Stop time
     stopTime();
   } else { //Run Time    
     Object.keys(time).forEach(x => time[x] = 0); //Reset
-    timeDiv.innerHTML = time;
+    timeDiv.innerHTML = getTimeString();
     running = true;
     timer = setInterval(runTime, 100); //100ms = 1 cs
   }
