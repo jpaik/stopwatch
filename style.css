@@ -41,6 +41,7 @@ h1 > span{
   margin-top: 10px;
   background: none;
   cursor: pointer;
+  font: inherit;
 }
 .container button:hover{
   background: #ccc;
