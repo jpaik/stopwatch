@@ -1,4 +1,4 @@
-var time = {'minutes':0, 'seconds': 0, 'centiseconds': 0};
+var time = {'minutes': 0, 'seconds': 0, 'centiseconds': 0};
 var timer, running = false;
 var timeDiv = document.getElementById('time');
 
@@ -14,7 +14,7 @@ function handleTimer(e){
     Object.keys(time).forEach(x => time[x] = 0); //Reset
     timeDiv.innerHTML = getTimeString();
     running = true;
-    timer = setInterval(runTime, 100); //100ms = 1 cs
+    timer = setInterval(runTime, 10);
   }
 }
 
@@ -25,7 +25,7 @@ function stopTime(){
 
 function runTime(){
   time['centiseconds']++;
-  if(time['centiseconds'] >= 10){
+  if(time['centiseconds'] >= 100){
     time['centiseconds'] = 0;
     time['seconds']++;
   }
