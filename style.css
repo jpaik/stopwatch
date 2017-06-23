@@ -31,3 +31,17 @@ h1 > span{
   display: inline-block;
   position: absolute;
 }
+
+.container p{
+  text-align: center;
+}
+.container button{
+  border: 1px solid #ccc;
+  padding: 5px 12px;
+  margin-top: 10px;
+  background: none;
+  cursor: pointer;
+}
+.container button:hover{
+  background: #ccc;
+}

@@ -4,19 +4,20 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stopwatch</title>
-    <link rel="stylesheet" type="text/css" href="style.css" /> 
+    <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
-  
+
   <body>
     <div class="container">
       <h1><span id="time">00:00:00</span></h1>
       <p>
-        Press space or tap in order to start/stop.
+        <span class="normal">Press space or tap in order to start/stop.</span>
+        <span class="tournament" style="display:none;">Hold space and let go to start. Press space to stop.</span>
         <br />
         <button id="mode" data-mode="normal">Switch Mode</button>
       </p>
     </div>
-    
+
     <script type="text/javascript" src="stopwatch.js"></script>
   </body>
 </html>
