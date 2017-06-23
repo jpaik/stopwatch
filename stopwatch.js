@@ -12,7 +12,7 @@ modeButton.addEventListener('click', changeMode); //Change mode on button click
 window.onload = centerTimer;
 window.addEventListener('resize', centerTimer);
 function centerTimer(){
-  timeDiv.style.top = window.innerHeight / 2 - timeDiv.offsetHeight - 20 + 'px';
+  timeDiv.style.top = window.innerHeight / 2 - timeDiv.offsetHeight - 40 + 'px';
   timeDiv.style.left = window.innerWidth / 2 - timeDiv.offsetWidth / 2 + 'px';
 }
 
