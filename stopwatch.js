@@ -5,8 +5,10 @@ var timeDiv = document.getElementById('time'); //Span that hold time string
 document.addEventListener('keydown', handleTimer); //On pressing space
 
 //Absolutely position at center
-timeDiv.style.top = window.innerHeight / 2 - timeDiv.offsetHeight - 20 + 'px';
-timeDiv.style.left = window.innerWidth / 2 - timeDiv.offsetWidth / 2 + 'px';
+setTimeout(function(){
+  timeDiv.style.top = window.innerHeight / 2 - timeDiv.offsetHeight - 20 + 'px';
+  timeDiv.style.left = window.innerWidth / 2 - timeDiv.offsetWidth / 2 + 'px';
+}, 300); //Giving it time to render
 
 function handleTimer(e){ //Sends it to correct function based on running
   var keyCode = e.keyCode;  
