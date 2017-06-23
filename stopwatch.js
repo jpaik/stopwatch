@@ -18,8 +18,15 @@ function handleTimer(e){ //Sends it to correct function based on running
   var keyCode = e.keyCode;
   if(keyCode !== 32) return;
 
-  if(running || mode === "tournament"){ //Stop time
-    tournamentStop = true;
+  if(mode === "tournament"){
+    if(running){
+      tournamentStop = true;
+      stopTime();
+    }
+    return;
+  }
+
+  if(running){ //Stop time
     stopTime();
   } else { //Run Time
     Object.keys(time).forEach(x => time[x] = 0); //Reset
